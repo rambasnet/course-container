@@ -1,4 +1,5 @@
-
+"""This is the docstring for the hello.hi module.
+"""
 def answer():
     return 'Hello World!'
 
