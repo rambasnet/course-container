@@ -5,3 +5,4 @@ def test_hi():
 
 def test_hi_fail():
     assert hi.answer() == 'Hello World'
+    print('This will not print')
