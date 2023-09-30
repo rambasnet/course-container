@@ -7,6 +7,6 @@ echo "Running pre-push hook on main branch"
 bash ./hooks/run-test.sh
 # $? stores exit value of the last command
 if [ $? != 0 ]; then
- echo "Tests must pass before push!"
+ echo "Tests must pass before push to main!"
  exit 1
 fi
