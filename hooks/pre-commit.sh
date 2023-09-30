@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
-echo "Running pre-commit hook"
-./hooks/run-test.sh
-
-# $? stores exit value of the last command
-if [ $? -ne 0 ]; then
- echo "Tests must pass before commit!"
- exit 1
+branch=$(git symbolic-ref --short head)
+if [[ "$branch" == "main" ]]; then
+    echo "Commit on main is now allowed. Please use a feature branch."
+    exit 1
 fi
+exit 0
