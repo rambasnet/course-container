@@ -7,4 +7,4 @@ def test1_answer():
     assert cold.answer('-10') == 1
 
 def test2_answer():
-    assert cold.answer('-10 0 -30') == 3
+    assert cold.answer('-10 0 -30') == 2
