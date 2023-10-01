@@ -3,7 +3,7 @@ FROM python:3
 RUN apt update \
   && apt install -y \
   sqlite3 build-essential time curl cmake git nano dos2unix \
-  net-tools iputils-ping iproute2 sudo
+  net-tools iputils-ping iproute2 sudo gdb
 
 ARG USER=user
 ARG UID=1000
@@ -19,22 +19,26 @@ RUN useradd -m -s /bin/bash -N -u $UID $USER && \
     chmod 0440 /etc/sudoers && \
     chmod g+w /etc/passwd 
 
+WORKDIR ${HOME}
+
 RUN pip install --upgrade pip
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-WORKDIR /app
 
-RUN echo export PATH='"'/app/bin:/app/bin/$(uname -s)-$(uname -m):/app:'${PATH}''"' >> /root/.bashrc
+#WORKDIR /app
 
-VOLUME ${HOME}/.ssh
-VOLUME ${HOME}/.gnupg
-WORKDIR /repo
-VOLUME /repo
+# Uses "Bira" theme with some customization. Uses some bundled plugins and installs some more from github
+RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)" -- \
+    -t bira \
+    -p git \
+    -p ssh-agent \
+    -p https://github.com/zsh-users/zsh-autosuggestions \
+    -p https://github.com/zsh-users/zsh-completions
+
+RUN echo export PATH="${HOME}:${PATH}" >> ${HOME}/.bashrc
 
 USER user
 
-CMD bash -i
-
-ENTRYPOINT ["/bin/bash","-i","-c","\"$@\"","--"]
+CMD zsh

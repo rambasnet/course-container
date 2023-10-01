@@ -89,13 +89,14 @@ winpath() {
 }
 
 # use the directory name as the tag name for podman
-CONTAINER_TAG=$container-$(basename "$SCRIPT_DIR")
+PARENT_DIR=$(basename "$SCRIPT_DIR")
+CONTAINER_TAG=$container-$PARENT_DIR
 
 # Host (source) directory to mount in container
 HOST_DIR="$(winpath "$SCRIPT_DIR")"
 
 # Guest (target) directory where host directoy is mounted
-GUEST_DIR=/app
+GUEST_DIR=/home/user/$PARENT_DIR
 
 if [ ! -f Dockerfile ]
 then
@@ -115,7 +116,7 @@ fi
 
 if [ ${#args[@]} -eq 0 ]
 then
-    args=("bash" "-c" "cd $GUEST_DIR; bash -i")
+    args=("bash" "-c" "zsh")
 fi
 
 echo "$container run '$CONTAINER_TAG' (mounting host '$HOST_DIR' as '$GUEST_DIR'):" \
@@ -126,7 +127,7 @@ winenv $container run -it --rm \
     -v "$HOME/.ssh:/home/user/.ssh" \
     -v "$HOME/.gnupg:/home/user/.gnupg" \
     -v "$HOME/.gitconfig:/home/user/.gitconfig" \
+    -v "$HOST_DIR/.zsh_history:/home/user/.zsh_history" \
     -h ubuntu \
-    -p 8080:8080 \
     "$CONTAINER_TAG" \
     "${args[@]}"
