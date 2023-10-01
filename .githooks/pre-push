@@ -4,7 +4,7 @@ if [[ $current_branch != "main" ]]; then
   exit 0
 fi
 echo "Running pre-push hook on main branch"
-python -m pytest -v .
+make all
 # $? stores exit value of the last command
 if [[ $? != 0 ]]; then
  echo "Tests must pass before push to main!"
