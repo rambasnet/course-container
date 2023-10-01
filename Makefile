@@ -1,5 +1,7 @@
 TEST = pytest 
 TEST_ARGS = -v
+TYPE_CHECK = mypy --strict
+STYLE_CHECK = flake8
 
 .PHONY: all
 all: test clean
