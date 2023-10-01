@@ -97,6 +97,7 @@ HOST_DIR="$(winpath "$SCRIPT_DIR")"
 
 # Guest (target) directory where host directoy is mounted
 GUEST_DIR=/home/user/$PARENT_DIR
+git config --global --add safe.directory "$GUEST_DIR"
 
 if [ ! -f Dockerfile ]
 then
@@ -116,7 +117,7 @@ fi
 
 if [ ${#args[@]} -eq 0 ]
 then
-    args=("bash" "-c" "zsh")
+    args=("bash" "-c" "cd $GUEST_DIR; sudo bash script.sh; zsh")
 fi
 
 echo "$container run '$CONTAINER_TAG' (mounting host '$HOST_DIR' as '$GUEST_DIR'):" \
@@ -127,7 +128,7 @@ winenv $container run -it --rm \
     -v "$HOME/.ssh:/home/user/.ssh" \
     -v "$HOME/.gnupg:/home/user/.gnupg" \
     -v "$HOME/.gitconfig:/home/user/.gitconfig" \
-    -v "$HOST_DIR/.zsh_history:/home/user/.zsh_history" \
+    -v "$HOME/.zsh_history:/home/user/.zsh_history" \
     -h debian \
     "$CONTAINER_TAG" \
     "${args[@]}"
