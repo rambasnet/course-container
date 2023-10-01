@@ -2,13 +2,22 @@ TEST = pytest
 TEST_ARGS = -v
 TYPE_CHECK = mypy --strict
 STYLE_CHECK = flake8
+STYLE_FIX = autopep8 --in-place --recursive --aggressive --aggressive
 
 .PHONY: all
-all: test clean
+all: style-check type-check run-test clean
+
+.PHONY: type-check
+type-check:
+	$(TYPE_CHECK) .
+
+.PHONY: style-check
+style-check:
+	$(STYLE_CHECK) .
 
 # discover and run all tests
-.PHONY: test
-test:
+.PHONY: run-test
+trun-est:
 	$(TEST) $(TEST_ARGS) .
 
 .PHONY: clean
@@ -17,6 +26,11 @@ clean:
 	rm -rf .pytest_cache
 	rm -rf .mypy_cache
 
+
 .PHONY: push
-push: test clean
+push: run-test clean
 	
+
+.PHONY: fix-style
+fix-style:
+	$(STYLE_FIX) .

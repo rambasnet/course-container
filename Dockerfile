@@ -37,7 +37,7 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
     -p https://github.com/zsh-users/zsh-autosuggestions \
     -p https://github.com/zsh-users/zsh-completions
 
-RUN echo export PATH="${HOME}:${PATH}" >> ${HOME}/.bashrc
+RUN echo export PATH="${HOME}:${HOME}/.local/bin:${PATH}" >> ${HOME}/.bashrc
 
 USER user
 
