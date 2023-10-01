@@ -3,7 +3,7 @@ FROM python:3
 RUN apt update \
   && apt install -y \
   sqlite3 build-essential time curl cmake git nano dos2unix \
-  net-tools iputils-ping iproute2 sudo gdb
+  net-tools iputils-ping iproute2 sudo gdb less 
 
 ARG USER=user
 ARG UID=1000
