@@ -1,5 +1,5 @@
 TEST = pytest 
-TEST_ARGS = -v
+TEST_ARGS = --verbose --color=yes
 TYPE_CHECK = mypy --strict
 STYLE_CHECK = flake8
 STYLE_FIX = autopep8 --in-place --recursive --aggressive --aggressive
@@ -17,7 +17,7 @@ style-check:
 
 # discover and run all tests
 .PHONY: run-test
-trun-est:
+run-test:
 	$(TEST) $(TEST_ARGS) .
 
 .PHONY: clean

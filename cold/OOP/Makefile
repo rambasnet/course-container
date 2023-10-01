@@ -1,8 +1,8 @@
 all: check-style check-types test run clean
 
 test:
-	pytest test_solution.py
-	pytest test_temperature.py
+	pytest --verbose --color=yes test_solution.py
+	pytest --verbose --color=yes test_temperature.py
 
 run:
 	@cat ../data/1.in | python cold_oop.py | diff - ../data/1.ans

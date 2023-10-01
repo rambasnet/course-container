@@ -8,6 +8,7 @@ __maintainer__ = "Ram Basnet"
 
 
 import unittest
+import os
 from unittest.mock import patch
 from io import StringIO
 from cold_oop import Solution
@@ -21,8 +22,12 @@ class TestSolution(unittest.TestCase):
     def setUp(self) -> None:
         """ Setup method - called before each test"""
         self.sol = Solution()
-        self.input1 = open('../data/1.in', 'r', encoding='utf-8')
-        self.input2 = open('../data/2.in', 'r', encoding='utf-8')
+        dir_name = os.path.dirname(os.path.abspath(__file__))
+        file_1 = os.path.join(dir_name, '../data/1.in')
+        self.input1 = open(file_1, 'r', encoding='utf-8')
+        file_2 = os.path.join(dir_name, '../data/2.in')
+        print(f'{file_1=}')
+        self.input2 = open(file_2, 'r', encoding='utf-8')
 
     def tearDown(self) -> None:
         """ Tear down method - called after each test"""
