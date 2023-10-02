@@ -1,6 +1,8 @@
 # provide path to where plantuml.jar is downloaded
 PLANTUML = java -jar ~/plantuml.jar
 DOCS = docs
+PROBLEM = hello
+PYTHON = python3
 
 all: check_types unittest localtest create_docs create_uml
 	@echo "All done!"
@@ -53,3 +55,6 @@ endif
 	$(PLANTUML) uml/solution.plantuml
 	@echo "UML diagrams created and saved in uml folder"
 
+kattis:
+	kattis -f -p $(PROBLEM) hello_oop.py main.py -m main.py
+	
