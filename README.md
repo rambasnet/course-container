@@ -31,6 +31,7 @@
     - E.g., if you need to install any Linux packages, add the package to the end of `apt install -y` line
     - after the docker is built, it runs as a non-root user `user` with sudo privileges
     - the default working directory is `/home/user`
+    - your repository is mounted to `/home/user/<your-repository>`
     - no password is required for sudo commands
 
 2. Update the Makefile as needed for your project
