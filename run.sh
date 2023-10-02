@@ -91,6 +91,9 @@ winpath() {
 # use the directory name as the tag name for podman
 PARENT_DIR=$(basename "$SCRIPT_DIR")
 CONTAINER_TAG=$container-$PARENT_DIR
+CONTAINER_TAG=$(echo "$CONTAINER_TAG" | tr '[:upper:]' '[:lower:]')
+# replace spaces with hypens
+CONTAINER_TAG=$(echo "$CONTAINER_TAG" | sed 's/ /-/g')
 
 # Host (source) directory to mount in container
 HOST_DIR="$(winpath "$SCRIPT_DIR")"
@@ -132,6 +135,7 @@ winenv $container run -it --rm \
     -v "$HOME/.gnupg:/home/user/.gnupg" \
     -v "$HOME/.gitconfig:/home/user/.gitconfig" \
     -v "$HOME/.zsh_history:/home/user/.zsh_history" \
+    -v "./kattis-cli:/home/user/kattis-cli" \
     -h debian \
     "$CONTAINER_TAG" \
     "${args[@]}"

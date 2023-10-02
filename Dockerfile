@@ -37,7 +37,9 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
     -p https://github.com/zsh-users/zsh-autosuggestions \
     -p https://github.com/zsh-users/zsh-completions
 
-RUN echo export PATH="${HOME}:${HOME}/.local/bin:${PATH}" >> ${HOME}/.bashrc
+ENV PATH="${HOME}:${HOME}/.local/bin:${HOME}/kattis-cli:${PATH}"
+#RUN echo export PATH="${HOME}:${HOME}/.local/bin:${PATH}" >> ${HOME}/.zshrc
+ENV KATTIS_CLI="${HOME}/kattis-cli"
 
 USER user
 

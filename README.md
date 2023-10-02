@@ -21,6 +21,8 @@
     - `.githooks`
     - `requirements.py`
     - `.github`
+    - `ci-cd-requirements.txt`
+    - `kattis-cli`
 
 ### Configure
 
@@ -82,19 +84,17 @@
     - `project/<project-name>` - the project branch for various sub projects within a course
     - `assignment/<assignment-name>` - the assignment branch for various assignments within a course
 
-### Create a new branch
+### Create a new branch, track it, and push it to GitHub
 
 1. `$ cd <your-repository>`
 2. `$ git checkout main`
 3. `$ git pull`
 4. `$ git branch` # list all branches
-5. `$ git checkout -b <branch-name>` # create a new branch and switch to it
-6. `$ git branch --set-upstream-to=origin/<branch-name> <branch-name>` # set the upstream
-7. `$ git push -u origin <branch-name>` # push the new branch to GitHub and set the upstream
-8. add changes to the new branch
-9. `$ git add <file-name>` # add a file to the staging area
-10. `$ git commit -m "<commit-message>"` # commit the changes
-11. `$ git push` # push the changes to GitHub to the current branch
+5. `$ git checkout -b <new-branch-name>` # create a new branch and switch to it
+6. `$ git push -u origin <new-branch-name>` # push the new branch to GitHub and set the upstream
+7. `$ git add <file-name>` # add a file to the staging area
+8. `$ git commit -m "<commit-message>"` # commit the changes
+9. `$ git push` # push the changes to GitHub to the current branch
 
 ### Switch to an existing branch
 
@@ -172,5 +172,14 @@
     - e.g., `$ git tag -a assignment-1 -m "Final Submission of Assignment-1"`
 3. `$ git push origin <tag-name>` # push the tag to GitHub
 
+## Kattis Setup
 
+- learn more about [Kattis](https://open.kattis.com/help/submit)
+- `kattis-cli` folder contains scripts to submit solutions to Kattis
+- login to [https://open.kattis.com](https://open.kattis.com) and download .kattisrc file into kattis-cli folder in your repository
 
+### Submit a solution to Kattis
+
+1. `$ cd <your-repository>`
+2. `$ cd <kattis-problem> #e.g, cd hello`
+3. `$ kattis -f <file1> <file2> -m file1 -p <problemid> #e.g., kattis -f hello.py -p hello`

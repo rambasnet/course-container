@@ -5,3 +5,5 @@ mypy
 hypothesis
 flake8
 autopep8
+lxml
+requests
