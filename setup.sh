@@ -9,7 +9,7 @@ rm course-container/.gitignore
 rm course-container/LICENSE
 rm -rf course-container/hello
 rm -rf course-container/cold
-cp -r course-container/ ./
+cp -r course-container/. ./
 rm -rf course-container
 git config core.hooksPath .githooks
 echo "Downloaded required files"
