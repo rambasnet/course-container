@@ -191,7 +191,7 @@
 
 1. `$ cd <your-repository>`
 2. `$ git tag -a <tag-name> -m "<tag-message>"` # create a tag
-    - e.g., `$ git tag -a assignment-1 -m "Final Submission of Assignment-1"`
+    - e.g., `$ git tag -a assignment/1 -m "Final Submission of Assignment/1"`
 3. `$ git push origin <tag-name>` # push the tag to GitHub
 
 ## Kattis Setup
