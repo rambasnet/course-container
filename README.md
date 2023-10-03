@@ -81,7 +81,7 @@
 - CMU advanced courses deosn't allow committing to the main branch
     - only merge and push to main branch allowed
 - CMU courses recommends and enforces using a branch name that starts with:
-    - `lab|project|assignment|homework|issue|feature|bugfix|improvement|library|prerelease|release|hotfix`
+    - `lab|project|assignment|homework|issue|dev|feature|bugfix|improvement|library|prerelease|release|hotfix`
     - `main` - the main branch
     - `issue/<#>` - the issue branch
     - `feature/<feature-name>` - the feature branch
@@ -103,11 +103,25 @@
 7. `$ git add <file-name>` # add a file to the staging area
 8. `$ git commit -m "<commit-message>"` # commit the changes
 9. `$ git push` # push the changes to GitHub to the current branch
+10. `$ git branch -m <new-branch-name> <old-branch-name>` # rename a branch; optional old-branch-name if you're on the old-branch-name
+
+### Rename a branch
+
+1. `$ cd <your-repository>`
+2. `$ git branch -m <new-branch-name> <old-branch-name>` # rename a branch; optional old-branch-name if you're on the old-branch-name
+3. `$ git push origin -u <new-branch-name>` # push the new branch to GitHub and set the upstream
 
 ### Switch to an existing branch
 
 1. `$ cd <your-repository>`
 2. `$ git checkout <branch-name>` - switch to an existing branch
+
+### List all branches
+
+1. `$ cd <your-repository>`
+2. `$ git branch` - list all branches
+3. `$ git branch -a` - list all branches including remote branches
+4. `$ git branch -r` - list all remote branches
 
 ### Merge a branch to main
 
