@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 LC_ALL=C
 
-local_branch=$(git symbolic-ref --short head)
+#local_branch=$(git symbolic-ref --short head)
+local_branch=$(git rev-parse --abbrev-ref HEAD)
 echo "Running pre-commit hook on branch: $local_branch"
 if [[ "$local_branch" == "main" ]]; then
     echo "Commit on main is now allowed. Please use a feature branch."

@@ -10,6 +10,12 @@
     - `$ wget https://raw.githubusercontent.com/rambasnet/course-container/main/setup.sh`
     - `$ bash setup.sh`
 
+### Chromebook Setup
+
+- follow the instructions here: [https://www.techrepublic.com/article/install-docker-chromeos/](https://www.techrepublic.com/article/install-docker-chromeos/)
+- You may have to explictly activate docker group everytime:
+- `$ newgrp docker`
+
 ### What does setup.sh do?
 
 1. Copy the following folder (with subfolders) and files from this repository to your repository:
