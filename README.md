@@ -7,7 +7,7 @@
 3. Clone your repository to your local machine
 4. Download setup.sh script into your repository and run it
     - `$ cd <your-repository>`
-    - `$ wget https://raw.githubusercontent.com/rambasnet/course-container/main/setup.sh`
+    - `$ curl -o setup.sh https://raw.githubusercontent.com/rambasnet/course-container/main/setup.sh`
     - `$ bash setup.sh`
 
 ### Chromebook Setup
