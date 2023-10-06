@@ -101,8 +101,11 @@ HOST_DIR="$(winpath "$SCRIPT_DIR")"
 # Guest (target) directory where host directoy is mounted
 GUEST_DIR=/home/user/$PARENT_DIR
 
-# Configure git to use the host's .gitconfig
-git config --global --add safe.directory "$GUEST_DIR"
+# Configure container git to use the host's .gitconfig
+g_dir=$(cat ~/.gitconfig | grep "$GUEST_DIR")
+if [ -z "$g_dir" ]; then
+    git config --global --add safe.directory "$GUEST_DIR"
+fi
 git config core.hooksPath .githooks
 
 if [ ! -f Dockerfile ]

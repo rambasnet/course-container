@@ -5,5 +5,6 @@ echo "Working directory is $SCRIPT_DIR"
 
 chown user:users /home/user/.zsh_history
 chown user:users /home/user/.gitconfig
+# chown user:users --recursive /home/user
 PATH='${SCRIPT_DIR}:$PATH'
 export PATH
