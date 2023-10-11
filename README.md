@@ -80,10 +80,17 @@
 - learn more about [git branch management](https://git-scm.com/docs/git-branch)
 - CMU advanced courses deosn't allow committing to the main branch
     - only merge and push to main branch allowed
-- CMU courses recommends and enforces using a branch name that starts with:
+- CMU courses recommend and enforce using a branch name that starts with:
     - `lab|project|assignment|homework|issue|dev|feature|bugfix|improvement|library|prerelease|release|hotfix`
-    - `main` - the main branch
+    - `main` - the main branch - only merge and push to main branch allowed
+        - the main branch is protected and cannot be deleted
+        - the main branch is the default branch
+        - the main branch is the production branch
+        - the main branch is the release branch from which tags and releases are made
     - `issue/<#>` - the issue branch
+        - the issue branch is used to fix an issue, bug, or add a new feature
+        - the issue branch is created from the main branch
+        - the issue branch is merged to the main branch
     - `feature/<feature-name>` - the feature branch
     - `bug/<bug-name>` - the bug branch
     - `hotfix/<hotfix-name>` - the hotfix branch
