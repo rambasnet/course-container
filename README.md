@@ -209,11 +209,7 @@
 - learn more about [Kattis](https://open.kattis.com/help/submit)
 - `kattis-cli` folder contains scripts to submit solutions to Kattis
 - login to [https://open.kattis.com](https://open.kattis.com) and download .kattisrc file from [https://open.kattis.com/download/kattisrc](https://open.kattis.com/download/kattisrc) into kattis-cli folder in your repository
-
-```bash
-cd <your-repository>/kattis-cli
-curl -o .kattisrc https://open.kattis.com/download/kattisrc
-```
+- you can submit solutions to Kattis from your Docker container
 
 ### Submit a solution to Kattis
 
