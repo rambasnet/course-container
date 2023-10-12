@@ -198,14 +198,21 @@
 
 1. `$ cd <your-repository>`
 2. `$ git tag -a <tag-name> -m "<tag-message>"` # create a tag
-    - e.g., `$ git tag -a assignment/1 -m "Final Submission of Assignment/1"`
+    - e.g., `$ git tag -a assignment-1 -m "Final Submission of Assignment/1"`
 3. `$ git push origin <tag-name>` # push the tag to GitHub
+4. git tag -d <tag-name> # delete a tag locally
+5. git tag # show all tags
 
 ## Kattis Setup
 
 - learn more about [Kattis](https://open.kattis.com/help/submit)
 - `kattis-cli` folder contains scripts to submit solutions to Kattis
-- login to [https://open.kattis.com](https://open.kattis.com) and download .kattisrc file into kattis-cli folder in your repository
+- login to [https://open.kattis.com](https://open.kattis.com) and download .kattisrc file from [https://open.kattis.com/download/kattisrc](https://open.kattis.com/download/kattisrc) into kattis-cli folder in your repository
+
+```bash
+cd <your-repository>/kattis-cli
+curl -o .kattisrc https://open.kattis.com/download/kattisrc
+```
 
 ### Submit a solution to Kattis
 
