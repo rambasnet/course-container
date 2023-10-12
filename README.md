@@ -195,6 +195,7 @@
 
 - follow the naming convention for tags specified in the course
 - must tag to submit the assignment/lab/project
+- tag name must be unique across all branches
 
 1. `$ cd <your-repository>`
 2. `$ git tag -a <tag-name> -m "<tag-message>"` # create a tag
