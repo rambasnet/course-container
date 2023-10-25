@@ -125,7 +125,7 @@ fi
 
 if [ ${#args[@]} -eq 0 ]
 then
-    args=("bash" "-c" "cd $GUEST_DIR; jupyter notebook --ip 0.0.0.0 --port 9999 --no-browser")
+    args=("bash" "-c" "cd $GUEST_DIR; jupyter notebook --ip 0.0.0.0 --port 9999 --no-browser --allow-root")
 fi
 
 echo "$container run '$CONTAINER_TAG' (mounting host '$HOST_DIR' as '$GUEST_DIR'):" \
@@ -133,7 +133,7 @@ echo "$container run '$CONTAINER_TAG' (mounting host '$HOST_DIR' as '$GUEST_DIR'
 
 winenv $container run -it --rm \
     -v "$HOST_DIR:$GUEST_DIR$(optZ)" \
-    -h debian \
+    -h localhost \
     -p 9999:9999 \
     "$CONTAINER_TAG" \
     "${args[@]}"
