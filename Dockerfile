@@ -26,10 +26,7 @@ RUN pip install --upgrade pip
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-
-#WORKDIR /app
-
-# Uses "Bira" theme with some customization. Uses some bundled plugins and installs some more from github
+# Install zsh - use "Bira" theme with some customization. 
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)" -- \
     -t bira \
     -p git \
@@ -37,8 +34,9 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
     -p https://github.com/zsh-users/zsh-autosuggestions \
     -p https://github.com/zsh-users/zsh-completions
 
+# install kattis-cli
+RUN git clone https://github.com/Kattis/kattis-cli.git
 ENV PATH="${HOME}:${HOME}/.local/bin:${HOME}/kattis-cli:${PATH}"
-#RUN echo export PATH="${HOME}:${HOME}/.local/bin:${PATH}" >> ${HOME}/.zshrc
 ENV KATTIS_CLI="${HOME}/kattis-cli"
 
 USER user

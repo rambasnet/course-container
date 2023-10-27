@@ -138,7 +138,7 @@ winenv $container run -it --rm \
     -v "$HOME/.gnupg:/home/user/.gnupg" \
     -v "$HOME/.gitconfig:/home/user/.gitconfig" \
     -v "$HOME/.zsh_history:/home/user/.zsh_history" \
-    -v "./kattis-cli/:/home/user/kattis-cli" \
+    -v "$HOME/.kattisrc:/home/user/.kattisrc" \
     -h debian \
     "$CONTAINER_TAG" \
     "${args[@]}"
