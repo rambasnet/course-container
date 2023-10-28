@@ -132,13 +132,23 @@ fi
 echo "$container run '$CONTAINER_TAG' (mounting host '$HOST_DIR' as '$GUEST_DIR'):" \
     "${args[@]}"
 
+USER_HOME="/home/user"
+
+SSH_DIR="$(winpath "${HOME}/.ssh")"
+GIT_CONFIG="$(winpath "${HOME}/.gitconfig")"
+ZSH_HISTORY="$(winpath "${HOME}/.zsh_history")"
+KATTISRC="$(winpath "${HOME}/.kattisrc")"
+
+if [ ! -f $ZSH_HISTORY ]; then
+    touch $ZSH_HISTORY # window mounts it as directory if doesn't exist
+fi
+
 winenv $container run -it --rm \
     -v "$HOST_DIR:$GUEST_DIR$(optZ)" \
-    -v "$HOME/.ssh:/home/user/.ssh" \
-    -v "$HOME/.gnupg:/home/user/.gnupg" \
-    -v "$HOME/.gitconfig:/home/user/.gitconfig" \
-    -v "$HOME/.zsh_history:/home/user/.zsh_history" \
-    -v "$HOME/.kattisrc:/home/user/.kattisrc" \
+    -v "$SSH_DIR:$USER_HOME/.ssh" \
+    -v "$GIT_CONFIG:$USER_HOME/.gitconfig" \
+    -v "$ZSH_HISTORY:$USER_HOME/.zsh_history" \
+    -v "$KATTISRC:$USER_HOME/.kattisrc" \
     -h debian \
     "$CONTAINER_TAG" \
     "${args[@]}"
