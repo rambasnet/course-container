@@ -207,12 +207,13 @@
 ## Kattis Setup
 
 - learn more about [Kattis](https://open.kattis.com/help/submit)
-- `kattis-cli` folder contains scripts to submit solutions to Kattis
-- login to [https://open.kattis.com](https://open.kattis.com) and download .kattisrc file from [https://open.kattis.com/download/kattisrc](https://open.kattis.com/download/kattisrc) into kattis-cli folder in your repository
-- you can submit solutions to Kattis from your Docker container
+- Container's `/home/user/kattis-cli` folder contains scripts to submit solutions to Kattis
+- login to [https://open.kattis.com](https://open.kattis.com) and download .kattisrc file from [https://open.kattis.com/download/kattisrc](https://open.kattis.com/download/kattisrc) into your system's home directory; e.g., 'C:\Users\<username>\.kattisrc' on Windows or '/home/<username>/.kattisrc' on Mac/Linux
+- you can submit solutions to Kattis from your Container
 
 ### Submit a solution to Kattis
 
 1. `$ cd <your-repository>`
-2. `$ cd <kattis-problem> #e.g, cd hello`
+2. `$ cd <kattis-problem-folder> #e.g, cd hello`
 3. `$ kattis -f <file1> <file2> -m file1 -p <problemid> #e.g., kattis -f hello.py -p hello`
+4. `$ kattis -f hello.py` # if filename is same as problemid, you can omit -p option
