@@ -208,7 +208,8 @@
 
 - learn more about [Kattis](https://open.kattis.com/help/submit)
 - Container's `/home/user/kattis-cli` folder contains scripts to submit solutions to Kattis
-- login to [https://open.kattis.com](https://open.kattis.com) and download .kattisrc file from [https://open.kattis.com/download/kattisrc](https://open.kattis.com/download/kattisrc) into your system's home directory; e.g., 'C:\Users\<username>\.kattisrc' on Windows or '/home/<username>/.kattisrc' on Mac/Linux
+- login to [https://open.kattis.com](https://open.kattis.com) and download .kattisrc file from [https://open.kattis.com/download/kattisrc](https://open.kattis.com/download/kattisrc) into your system's home directory; e.g., `C:\Users\<username>\.kattisrc` on Windows or `/home/<username>/.kattisrc` on Mac/Linux
+- Note `.` in `.kattisrc` file name which is required
 - you can submit solutions to Kattis from your Container
 
 ### Submit a solution to Kattis
