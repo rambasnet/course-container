@@ -7,3 +7,4 @@ flake8
 autopep8
 lxml
 requests
+kattis-cli

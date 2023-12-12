@@ -34,11 +34,6 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
     -p https://github.com/zsh-users/zsh-autosuggestions \
     -p https://github.com/zsh-users/zsh-completions
 
-# install kattis-cli
-RUN git clone https://github.com/Kattis/kattis-cli.git
-ENV PATH="${HOME}:${HOME}/.local/bin:${HOME}/kattis-cli:${PATH}"
-ENV KATTIS_CLI="${HOME}/kattis-cli"
-
 USER user
 
 CMD zsh
