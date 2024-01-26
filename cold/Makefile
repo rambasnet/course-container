@@ -5,8 +5,7 @@ test:
 	pytest test_unit_cold.py
 	
 run:
-	@cat data/1.in | python cold.py | diff - data/1.ans
-	@cat data/2.in | python cold.py | diff - data/2.ans
+	@kattis test
 	@echo "All kattis sample test data test done..."
 
 check-types:
@@ -23,3 +22,4 @@ clean:
 	rm -rf __pycache__
 	rm -rf .pytest_cache
 	rm -rf .mypy_cache
+	
