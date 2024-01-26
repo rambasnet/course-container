@@ -206,4 +206,5 @@
 
 ## Kattis-cli Setup and Usage
 
+- Kattis-cli is already installed in the Docker container
 - [See this document for Kattis setup and usage](https://github.com/rambasnet/kattis-cli)
