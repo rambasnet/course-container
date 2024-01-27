@@ -18,7 +18,7 @@ check-style:
 # discover and run all tests
 .PHONY: run-test
 run-test:
-	$(TEST) $(TEST_ARGS) tests test_languages
+	$(TEST) $(TEST_ARGS) .
 
 .PHONY: fix-style
 fix-style:
