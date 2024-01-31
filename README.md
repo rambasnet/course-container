@@ -20,16 +20,16 @@
 
 1. Deep copies the following folders and files from this repository into your working directory:
     - `Dockerfile`
-    - `Makefile`
-    - `run.sh`
-    - `script.sh`
     - `.githooks`
-    - `requirements.py`
     - `.github`
-    - `ci-cd-requirements.txt`
-    - `kattis-cli`
     - `.mypy.ini`
     - `.flake8`
+    - `Makefile`
+    - `run.sh`
+    - `run-jupyter.sh`
+    - `script.sh`
+    - `requirements.py`
+    - `ci-cd-requirements.txt`
     - `cold`
     - `hello`
 
