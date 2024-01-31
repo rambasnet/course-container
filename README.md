@@ -18,7 +18,7 @@
 
 ### What does setup.sh do?
 
-1. Copy the following folder (with subfolders) and files from this repository to your repository:
+1. Deep copies the following folders and files from this repository into your working directory:
     - `Dockerfile`
     - `Makefile`
     - `run.sh`
@@ -30,6 +30,8 @@
     - `kattis-cli`
     - `.mypy.ini`
     - `.flake8`
+    - `cold`
+    - `hello`
 
 ### Configure
 

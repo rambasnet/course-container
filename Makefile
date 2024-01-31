@@ -5,30 +5,35 @@ STYLE_CHECK = flake8
 STYLE_FIX = autopep8 --in-place --recursive --aggressive --aggressive
 
 .PHONY: all
-all: check-style check-type run-test
+all: check-style check-type run-test clean
 
 .PHONY: check-type
 check-type:
-	$(TYPE_CHECK) .
+	$(TYPE_CHECK) hello
+	$(TYPE_CHECK) cold
 
 .PHONY: check-style
 check-style:
-	$(STYLE_CHECK) .
+	$(STYLE_CHECK) hello
+	$(STYLE_CHECK) cold
 
 # discover and run all tests
 .PHONY: run-test
 run-test:
-	$(TEST) $(TEST_ARGS) .
+	$(TEST) $(TEST_ARGS) hello
+	$(TEST) $(TEST_ARGS) cold
 
 .PHONY: fix-style
 fix-style:
-	$(STYLE_FIX) .
+	$(STYLE_FIX) hello
+	$(STYLE_FIX) cold
 
 .PHONY: clean
 clean:
-	rm -rf __pycache__
-	rm -rf .pytest_cache
-	rm -rf .mypy_cache
-	rm -rf .hypothesis
-	rm -rf .coverage
+	# remove all caches recursively
+	rm -rf `find . -type d -name __pycache__` # remove all pycache
+	rm -rf `find . -type d -name .pytest_cache` # remove all pytest cache
+	rm -rf `find . -type d -name .mypy_cache` # remove all mypy cache
+	rm -rf `find . -type d -name .hypothesis` # remove all hypothesis cache
+	rm -rf `find . -type d -name .coverage` # remove all coverage cache 
 	
