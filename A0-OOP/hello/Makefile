@@ -4,43 +4,37 @@ DOCS = docs
 PROBLEM = hello
 PYTHON = python3
 
-all: check_types unittest localtest create_docs create_uml
+all: check-style fix-style check-types run-test create-docs create-uml
 	@echo "All done!"
 
-unittest:
+run-test:
 ifeq ($(shell which pytest), ) # if pytest not found
 	@echo "pytest not found. Installing..."
 	pip install pytest
 endif
-	pytest test_hello.py
-	pytest test_main.py
+	pytest -v --cov=$(PROBLEM) tests
 	@echo "All unittesting worked!"
 
-localtest:
-	@python main.py | diff - data/1.ans
-	@echo "Program worked on sample data!" 
-
-check_types:
+check-types:
 # use shell command which to check if mypy is installed and is in $PATH
 ifeq ($(shell which mypy), )
 	@echo "mypy not found. Installing mypy..."
 	pip install mypy
 endif
-	mypy --disallow-untyped-defs --strict main.py hello.py
-	#mypy --disallow-untyped-defs --strict hello.py
-	mypy --disallow-untyped-defs --strict test_hello.py
-	mypy --disallow-untyped-defs --strict test_main.py
+	mypy --disallow-untyped-defs --strict .
 	@echo "Type checking done."
 
-create_doc_folder:
+.PHONY: create-doc-folder
+create-doc-folder:
 	@mkdir -p $(DOCS) # creates all folder(s) if not exists
 
-create_docs: create_doc_folder
-	pdoc --force -o docs main.py hello.py # creates .md docs inside docs
-	pdoc --force --html -o docs main.py hello.py # creates html docs inside docs
+.PHONY: create-docs
+create-docs: create-doc-folder
+	pdoc -o ./docs main.py hello.py # creates .md docs inside docs
 	@echo "html docs created and saved in $(DOCS)"
 
-create_uml: create_doc_folder
+.PHONY: create-uml
+create-uml: create-doc-folder
 # use shell command which to check if java is installed and is in the $PATH
 ifeq ($(shell which java), )
 	$(error "No java found in $(PATH). Install java to run plantuml")
@@ -55,6 +49,10 @@ endif
 	$(PLANTUML) uml/solution.plantuml
 	@echo "UML diagrams created and saved in uml folder"
 
-kattis:
-	kattis -f -p $(PROBLEM) hello_oop.py main.py -m main.py
-	
+.PHONY: check-style
+check-style:
+	flake8 .
+
+.PHONY: fix-style
+fix-style:
+	autopep8 --in-place --recursive --aggressive --aggressive .

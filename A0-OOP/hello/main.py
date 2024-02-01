@@ -12,7 +12,7 @@ __license__ = "MIT"
 __version__ = "0.1.0"
 __maintainer__ = "Ram Basnet"
 
-from hello_oop import HelloWorld
+from hello import HelloWorld
 
 
 class Main(object):

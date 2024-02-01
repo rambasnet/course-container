@@ -38,5 +38,6 @@ jobs:
         mypy --strict --allow-untyped-decorators --ignore-missing-imports .
     - name: Test with pytest
       run: |
-        pytest --verbose .
+        pytest --verbose --cov cold
+        pytest --verbose --cov hello
         

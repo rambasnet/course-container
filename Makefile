@@ -1,32 +1,33 @@
-TEST = python -m pytest 
+TEST = python -m pytest
 TEST_ARGS = -s --verbose --color=yes
 TYPE_CHECK = mypy --strict --allow-untyped-decorators --ignore-missing-imports
 STYLE_CHECK = flake8
-STYLE_FIX = autopep8 --in-place --recursive --aggressive --aggressive
 
 .PHONY: all
 all: check-style check-type run-test clean
 
 .PHONY: check-type
 check-type:
-	$(TYPE_CHECK) hello
-	$(TYPE_CHECK) cold
+	$(TYPE_CHECK) A0/hello
+	$(TYPE_CHECK) A0-OOP/hello
+	$(TYPE_CHECK) A1/cold
+	$(TYPE_CHECK) A1-OOP/cold
 
 .PHONY: check-style
 check-style:
-	$(STYLE_CHECK) hello
-	$(STYLE_CHECK) cold
+	$(STYLE_CHECK) A0/hello
+	$(STYLE_CHECK) A0-OOP/hello
+	$(STYLE_CHECK) A1/cold
+	$(STYLE_CHECK) A1-OOP/cold
 
 # discover and run all tests
 .PHONY: run-test
 run-test:
-	$(TEST) $(TEST_ARGS) hello
-	$(TEST) $(TEST_ARGS) cold
+	$(TEST) $(TEST_ARGS) A0/hello/tests
+	$(TEST) $(TEST_ARGS) A0-OOP/hello/tests
+	$(TEST) $(TEST_ARGS) A1/cold/tests
+	$(TEST) $(TEST_ARGS) A1-OOP/cold/tests
 
-.PHONY: fix-style
-fix-style:
-	$(STYLE_FIX) hello
-	$(STYLE_FIX) cold
 
 .PHONY: clean
 clean:

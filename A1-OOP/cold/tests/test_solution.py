@@ -11,7 +11,7 @@ import unittest
 import os
 from unittest.mock import patch
 from io import StringIO
-from cold_oop import Solution
+from cold import Solution
 
 
 class TestSolution(unittest.TestCase):

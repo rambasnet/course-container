@@ -61,7 +61,7 @@ class TestCold(unittest.TestCase):
         ans = answer(nums)
         self.assertEqual(ans, expected)
 
-    @settings(max_examples=200, verbosity=Verbosity.verbose,
+    @settings(max_examples=200,
               derandomize=True)
     @given(some.lists(some.integers(min_value=-
                                     1_000_000, max_value=1_000_000),

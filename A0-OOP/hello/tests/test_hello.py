@@ -12,7 +12,7 @@ __maintainer__ = "Ram Basnet"
 import unittest
 from unittest.mock import patch
 from io import StringIO
-from hello_oop import HelloWorld
+from hello import HelloWorld
 
 
 class TestHelloWorld(unittest.TestCase):
