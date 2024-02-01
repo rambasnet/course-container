@@ -35,9 +35,12 @@ jobs:
         # flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Check types with mypy
       run: |
-        mypy --strict --allow-untyped-decorators --ignore-missing-imports .
+        mypy --strict --allow-untyped-decorators --ignore-missing-imports A0/hello A0-OOP/hello 
+        mypy --strict --allow-untyped-decorators --ignore-missing-imports A1/cold A1-OOP/cold
     - name: Test with pytest
       run: |
-        pytest --verbose --cov cold
-        pytest --verbose --cov hello
+        pytest --verbose A0/hello/tests
+        pytest --verbose A0-OOP/hello/tests
+        pytest --verbose A1/cold/tests
+        pytest --verbose A1-OOP/cold/tests
         

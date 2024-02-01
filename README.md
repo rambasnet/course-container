@@ -1,6 +1,6 @@
 # Docker Container with Git Best Practices for CMU Courses
 
-![Tests](https://github.com/rambasnet/actions/workflows/ci-test.yml/badge.svg)
+![Tests](https://github.com/rambasnet/course-container/actions/workflows/ci-test.yml/badge.svg)
 
 ## Setup
 
