@@ -26,17 +26,23 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install flake8
+        # can install packages from a requirements file
         if [ -f ci-cd-requirements.txt ]; then pip install -r ci-cd-requirements.txt; fi
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
-        flake8 --count --show-source --statistics .
+        flake8 --count --show-source --statistics A0/hello
+        flake8 --count --show-source --statistics A0-OOP/hello
+        flake8 --count --show-source --statistics A1/cold
+        flake8 --count --show-source --statistics A1-OOP/cold
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         # flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Check types with mypy
       run: |
-        mypy --strict --allow-untyped-decorators --ignore-missing-imports A0/hello A0-OOP/hello 
-        mypy --strict --allow-untyped-decorators --ignore-missing-imports A1/cold A1-OOP/cold
+        mypy --strict --allow-untyped-decorators --ignore-missing-imports A0/hello 
+        mypy --strict --allow-untyped-decorators --ignore-missing-imports A0-OOP/hello 
+        mypy --strict --allow-untyped-decorators --ignore-missing-imports A1/cold
+        mypy --strict --allow-untyped-decorators --ignore-missing-imports A1-OOP/cold
     - name: Test with pytest
       run: |
         pytest --verbose A0/hello/tests
