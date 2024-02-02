@@ -2,7 +2,7 @@ all: check-style check-types run-test clean
 
 .PHONY: test
 run-test:
-	pytest --verbose --color=yes --cov tests --cov-report term-missing --cov-report html
+	pytest --verbose --color=yes --cov --cov-report term --cov-report html tests/
 
 .PHONY: check-types
 check-types:
@@ -15,7 +15,6 @@ check-style:
 .PHONY: fix-style
 fix-style:
 	autopep8 --in-place --recursive --aggressive --aggressive .
-
 
 .PHONY: clean
 clean:

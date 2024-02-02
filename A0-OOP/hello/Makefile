@@ -4,17 +4,20 @@ DOCS = docs
 PROBLEM = hello
 PYTHON = python3
 
+.PHONY: all
 all: check-style fix-style check-types run-test create-docs create-uml
 	@echo "All done!"
 
+.PHONY: run-test
 run-test:
 ifeq ($(shell which pytest), ) # if pytest not found
 	@echo "pytest not found. Installing..."
 	pip install pytest
 endif
-	pytest -v --cov=$(PROBLEM) tests
-	@echo "All unittesting worked!"
+	pytest --verbose --color=yes --cov --cov-report term --cov-report html tests/
+	@echo "All unittests passed!"
 
+.PHONY: check-types
 check-types:
 # use shell command which to check if mypy is installed and is in $PATH
 ifeq ($(shell which mypy), )

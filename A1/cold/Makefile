@@ -1,8 +1,10 @@
+.PHONY: all
 all: check-style check-types run-test clean
+	@echo "All done!"
 
-.PHONY: test
+.PHONY: run-test
 run-test:
-	pytest --verbose --color=yes --cov  tests --cov-report term-missing --cov-report html
+	pytest --verbose --color=yes --cov --cov-report term --cov-report html tests/
 
 .PHONY: check-types
 check-types:
