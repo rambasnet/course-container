@@ -32,8 +32,10 @@
     - `script.sh`
     - `requirements.py`
     - `ci-cd-requirements.txt`
-    - `cold`
-    - `hello`
+    - `A0`
+    - `A0-OOP`
+    - `A1`
+    - `A1-OOP`
 
 ### Configure
 
