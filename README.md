@@ -20,7 +20,8 @@
 
 ### What does setup.sh do?
 
-1. Deep copies the following folders and files from this repository into your working directory:
+1. Clones this repository into your working directory
+2. Deep copies the following folders and files from this repository into your working directory:
     - `Dockerfile`
     - `.githooks`
     - `.github`
@@ -36,6 +37,7 @@
     - `A0-OOP`
     - `A1`
     - `A1-OOP`
+3. Deletes the cloned repository and other files and folders not listed above
 
 ### Configure
 
@@ -116,7 +118,6 @@
 7. `$ git add <file-name>` # add a file to the staging area
 8. `$ git commit -m "<commit-message>"` # commit the changes
 9. `$ git push` # push the changes to GitHub to the current branch
-10. `$ git branch -m <new-branch-name> <old-branch-name>` # rename a branch; optional old-branch-name if you're on the old-branch-name
 
 ### Rename a branch
 
@@ -138,7 +139,8 @@
 
 ### Merge a branch to main
 
-- you must merge your branch to main after all the tests pass on your branch
+- committing and pushing to main is not allowed
+- you must work on a branch and merge it to main after all the checks and tests pass on the branch
 - you can then push and tag the main branch
 
 1. `$ cd <your-repository>`
@@ -152,6 +154,7 @@
 
 - you can only delete a branch that is not currently checked out
 - you can keep the merged branch or delete it
+- for courses, keep all the branches as proof of your work
 
 1. `$ cd <your-repository>`
 2. `$ git branch -d <branch-name>` # delete the branch locally
