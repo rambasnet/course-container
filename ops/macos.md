@@ -65,7 +65,7 @@ git config --global user.email johndoe@example.com
 cd # change to your WSL home directory
 mkdir projects
 cd projects
-git clone git@github.com:wmacevoy/devops-wmacevoy
+git clone git@github.com:rambasnet/course-container
 ```
 9. Run some tests
 ```bash
