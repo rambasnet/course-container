@@ -50,9 +50,9 @@ jobs:
         pytest --verbose A1/cold/tests
         pytest --verbose A1-OOP/cold/tests
         
-    -   name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v4.0.1
-        env:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          slug: rambasnet/course-container
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4.0.1
+      env:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        slug: rambasnet/course-container
           
