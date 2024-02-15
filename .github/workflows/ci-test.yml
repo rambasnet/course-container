@@ -50,9 +50,22 @@ jobs:
         pytest --verbose A1/cold/tests
         pytest --verbose A1-OOP/cold/tests
         
+    - name: Generate coverage report
+      run: |
+        pytest --cov-report=xml --cov=A0/hello A0/hello
+        pytest --cov-report=xml --cov=A0-OOP/hello A0-OOP/hello
+        pytest --cov-report=xml --cov=A1/cold A1/cold A1/cold
+        pytest --cov-report=xml --cov=A1-OOP/cold A1-OOP/cold A1-OOP/cold
+        codecov
+
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4.0.1
-      env:
+      with:
+        fail_ci_if_error: true # optional (default = false)
+        files: A0/hello/coverage.xml \
+            A0-OOP/hello/coverage.xml \
+            A1/cold/coverage.xml \
+            A1-OOP/cold/coverage.xml
         token: ${{ secrets.CODECOV_TOKEN }}
         slug: rambasnet/course-container
           
