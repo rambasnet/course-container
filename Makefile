@@ -4,7 +4,7 @@ TYPE_CHECK = mypy --strict --allow-untyped-decorators --ignore-missing-imports
 STYLE_CHECK = flake8
 
 .PHONY: all
-all: check-style check-type run-test run-test-coverage clean
+all: check-style check-type run-test clean
 
 .PHONY: check-type
 check-type:
