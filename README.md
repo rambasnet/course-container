@@ -1,6 +1,7 @@
 # Docker Container with Git Best Practices for CMU Courses
 
 ![Tests](https://github.com/rambasnet/course-container/actions/workflows/ci-test.yml/badge.svg)
+[![Code Coverage](https://img.shields.io/codecov/c/github/rambasnet/course-container?label=codecov&logo=codecov)](https://app.codecov.io/gh/rambasnet/course-container)
 
 ## Setup
 
