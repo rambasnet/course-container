@@ -43,14 +43,12 @@ jobs:
         mypy --strict --allow-untyped-decorators --ignore-missing-imports A0-OOP/hello 
         mypy --strict --allow-untyped-decorators --ignore-missing-imports A1/cold
         mypy --strict --allow-untyped-decorators --ignore-missing-imports A1-OOP/cold
-        
     - name: Test with pytest
       run: |
         pytest --verbose A0/hello/tests
         pytest --verbose A0-OOP/hello/tests
         pytest --verbose A1/cold/tests
         pytest --verbose A1-OOP/cold/tests
-        
     - name: Generate coverage report
       run: |
         pytest --cov-report=xml:A0/hello --cov=A0/hello A0/hello/tests
@@ -58,7 +56,6 @@ jobs:
         pytest --cov-report=xml:A1/cold --cov=A1/cold A1/cold/tests
         pytest --cov-report=xml:A1-OOP/cold --cov=A1-OOP/cold A1-OOP/cold/tests
         codecov
-
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4.0.1
       with:
