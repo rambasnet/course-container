@@ -116,7 +116,3 @@ class TestTemperature(unittest.TestCase):
         :return: None
         """
         return super().tearDown()
-
-
-if __name__ == '__main__':
-    unittest.main(verbosity=2)
