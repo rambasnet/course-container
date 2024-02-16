@@ -43,4 +43,3 @@ class TestMain(unittest.TestCase):
         :return: None
         """
         self.assertIs(self.my_main.get_instance(), self.my_main)
-

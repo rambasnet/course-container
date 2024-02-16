@@ -21,4 +21,3 @@ def test_answer() -> None:
     assert answer([0, 453445, -1, -100, -45454, -44445]) == 4
     assert answer1('0 453445 -1 -100 -45454 -44445') == 4
     print('all test casses passed...', file=sys.stderr)
-

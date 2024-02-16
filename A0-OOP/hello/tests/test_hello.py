@@ -45,4 +45,3 @@ class TestHelloWorld(unittest.TestCase):
 
     def test_message(self) -> None:
         self.assertEqual(self.hello.message, 'Hello World!')
-
