@@ -46,6 +46,3 @@ class TestHelloWorld(unittest.TestCase):
     def test_message(self) -> None:
         self.assertEqual(self.hello.message, 'Hello World!')
 
-
-if __name__ == '__main__':
-    unittest.main(verbosity=2)

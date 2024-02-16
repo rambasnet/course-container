@@ -44,6 +44,3 @@ class TestMain(unittest.TestCase):
         """
         self.assertIs(self.my_main.get_instance(), self.my_main)
 
-
-if __name__ == '__main__':
-    unittest.main(verbosity=2)

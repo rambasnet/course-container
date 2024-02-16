@@ -22,7 +22,3 @@ def test_answer() -> None:
     assert answer1('0 453445 -1 -100 -45454 -44445') == 4
     print('all test casses passed...', file=sys.stderr)
 
-
-if __name__ == "__main__":
-    # Don't need to call test_answer() if we use pytest
-    test_answer()
