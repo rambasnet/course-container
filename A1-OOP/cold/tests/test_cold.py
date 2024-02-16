@@ -44,7 +44,6 @@ class TestSolution(unittest.TestCase):
     def test_read_data2(self) -> None:
         """
         Tests readData method
-        :return: None
         """
         self.sol.read_data(self.input2)
         self.assertEqual(self.sol.get_n(), 5)
@@ -62,8 +61,6 @@ class TestSolution(unittest.TestCase):
         expected = self.sol.find_answer()
         self.assertEqual(expected, 5)
 
-    # @patch('sys.stdout', new_callable=StringIO)
-    # @patch('sys.stderr', new_callable=StringIO)
     def test_solve1(self) -> None:
         """ Tests solve method - using patch context manager
         - tests 1.in
@@ -80,3 +77,10 @@ class TestSolution(unittest.TestCase):
         """
         self.sol.solve(self.input2)
         self.assertEqual(mock_stdout.getvalue(), '5\n')
+
+    @patch('sys.stdin', StringIO('3\n5 -10 15\n'))
+    def test_main(self) -> None:
+        """Tests main static method"""
+        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+            Solution.main()
+            self.assertEqual(mock_stdout.getvalue(), '1\n')

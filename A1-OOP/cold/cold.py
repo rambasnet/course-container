@@ -78,7 +78,13 @@ class Solution():
         print(self.find_answer())
         # sys.stdout.write('1')
 
+    @staticmethod
+    def main() -> None:
+        """main static method
+        """
+        sol = Solution()
+        sol.solve(sys.stdin)
+
 
 if __name__ == "__main__":
-    sol = Solution()
-    sol.solve(sys.stdin)
+    Solution.main()

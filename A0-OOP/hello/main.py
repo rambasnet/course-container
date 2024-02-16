@@ -52,15 +52,15 @@ class Main(object):
     def main() -> None:
         """main static method
         """
-        sol = Main()
+        sol = Main.get_instance()
         sol.solve()
 
 
 def main() -> None:
     """main global function
     """
-    sol = Main()
-    sol.solve()
+    sol1 = Main.get_instance()
+    sol1.solve()
 
 
 if __name__ == '__main__':

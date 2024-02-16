@@ -50,19 +50,19 @@ def answer1(line: str) -> int:
 def solve1() -> None:
     """Reads input ans uses answer1 function.
     """
-    num = input()
-    temps = sys.stdin.readline().strip()
-    print(f'{num=}; {temps=}', file=sys.stderr)
+    _ = input()
+    temps = input().strip()
+    # print(f'{num=}; {temps=}', file=sys.stderr)
     print(answer1(temps))
 
 
 def solve() -> None:
     """Reads input and parses the string as list of integer.
     """
-    num = input()
+    _ = sys.stdin.readline()
     # use list comprehension syntax
     temps = [int(temp) for temp in sys.stdin.readline().strip().split()]
-    print(f'{num=}; {temps=}', file=sys.stderr)
+    # print(f'{num=}; {temps=}', file=sys.stderr)
     print(answer(temps))
 
 

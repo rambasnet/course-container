@@ -6,35 +6,37 @@ __license__ = "MIT"
 __version__ = "0.1.0"
 __maintainer__ = "Ram Basnet"
 
-from typing import Any
 
-
-class Temperature(object):
+class Temperature:
     """
     Represents a temperature
     """
 
     def __init__(self, temp: int, unit: str = 'F') -> None:
-        """
-        initializes a temperature
-        :param temp: temperature
+        """Constructor
+
+        Args:
+            temp (int): temperature
+            unit (str, optional): temperature unit. Defaults to 'F' for Fahrenheit.
         """
         self._temp: int = temp
         self._unit: str = unit
 
     @property
     def temp(self) -> int:
-        """
-        returns the temperature
-        :return: _temp
+        """Property to get temperature
+
+        Returns:
+            int: temperature
         """
         return self._temp
 
     @temp.setter
     def temp(self, temp: int) -> None:
-        """
-        sets the temperature
-        :param temp: temperature
+        """Property to set temperature
+
+        Args:
+            temp (int): temperature
         """
         self._temp = temp
 
@@ -43,7 +45,7 @@ class Temperature(object):
         """
         Property to get/set unit of temperature
         Returns:
-                        str: unit
+            str: unit
         """
         return self._unit
 
@@ -84,9 +86,7 @@ class Temperature(object):
         Returns:
             bool: True if this temperature is less than the other.
         """
-        if not isinstance(other, Temperature):
-            return NotImplemented
-        return self._temp < other._temp
+        return self._temp < other.temp
 
     def __gt__(self, other: 'Temperature') -> bool:
         """Greater than comparision.
@@ -97,22 +97,20 @@ class Temperature(object):
         Returns:
             bool: True if this temperature is greater than the other.
         """
-        if not isinstance(other, Temperature):
-            return NotImplemented
-        return self._temp > other._temp
+        return self._temp > other.temp
 
-    def __eq__(self, other: Any) -> bool:
+    def __eq__(self, other: object) -> bool:
         """Equal comparision.
 
         Args:
-            other (Any): other object to compare with.
+            other (Temperature): other object to compare with.
 
         Returns:
             bool: True if this object is equal to the other
         """
         if not isinstance(other, Temperature):
-            return NotImplemented
-        return self._temp == other._temp
+            raise NotImplementedError
+        return self._temp == other.temp
 
     def __le__(self, other: 'Temperature') -> bool:
         """Less than or equal to comparison
@@ -123,9 +121,7 @@ class Temperature(object):
         Returns:
             bool: True if this temp is less than or equal to the other.
         """
-        if not isinstance(other, Temperature):
-            return NotImplemented
-        return self._temp <= other._temp
+        return self._temp <= other.temp
 
     def __ge__(self, other: 'Temperature') -> bool:
         """Greater than or equal to comparision.
@@ -136,6 +132,4 @@ class Temperature(object):
         Returns:
             bool: True if this object is greater than the other.
         """
-        if not isinstance(other, Temperature):
-            return NotImplemented
-        return self._temp >= other._temp
+        return self._temp >= other.temp

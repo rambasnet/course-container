@@ -24,61 +24,53 @@ class TestTemperature(unittest.TestCase):
         """
         self.temp = Temperature(32)
 
-    def test_setTemp(self) -> None:
+    def test_set_temp(self) -> None:
         """
         Tests setTemp method
-        :return: None
         """
         self.temp.temp = 0
         self.assertEqual(self.temp.temp, 0)
 
-    def test_getTemp(self) -> None:
+    def test_get_temp(self) -> None:
         """
         Tests getTemp method
-        :return: None
         """
         self.assertEqual(self.temp.temp, 32)
 
-    def test_setUnit(self) -> None:
+    def test_set_unit(self) -> None:
         """
         Tests setUnit method
-        :return: None
         """
         self.temp.unit = 'C'
         self.assertEqual(self.temp.unit, 'C')
 
-    def test_getUnit(self) -> None:
+    def test_get_unit(self) -> None:
         """
         Tests getUnit method
-        :return: None
         """
         self.assertEqual(self.temp.unit, 'F')
 
     def test_is_negative(self) -> None:
         """
         Tests isNegative method
-        :return: None
         """
         self.assertFalse(self.temp.is_negative())
 
     def test_str(self) -> None:
         """
         Tests str method
-        :return: None
         """
         self.assertEqual(str(self.temp), '32 F')
 
     def test_repr(self) -> None:
         """
         Tests repr method
-        :return: None
         """
         self.assertEqual(repr(self.temp), '32 F')
 
     def test_lt(self) -> None:
         """
         Tests lt method
-        :return: None
         """
         self.assertFalse(self.temp < Temperature(0))
 
@@ -95,6 +87,12 @@ class TestTemperature(unittest.TestCase):
         :return: None
         """
         self.assertFalse(self.temp == Temperature(0))
+
+    def test_eq_not_implemented(self) -> None:
+        """
+        Tests __eq__ method not implemented exeception
+        """
+        self.assertRaises(NotImplementedError, self.temp.__eq__, 0)
 
     def test_le(self) -> None:
         """
@@ -115,4 +113,4 @@ class TestTemperature(unittest.TestCase):
         Tear down method
         :return: None
         """
-        return super().tearDown()
+        super().tearDown()
