@@ -31,39 +31,39 @@ jobs:
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
-        flake8  --max-complexity=10 --max-line-length=100 --count --show-source --statistics A0/hello
-        flake8  --max-complexity=10 --max-line-length=100 --count --show-source --statistics A0-OOP/hello
-        flake8  --max-complexity=10 --max-line-length=100 --count --show-source --statistics A1/cold
-        flake8  --max-complexity=10 --max-line-length=100 --count --show-source --statistics A1-OOP/cold
+        flake8  --max-complexity=10 --max-line-length=100 --count --show-source --statistics demo-assignments/A0/hello
+        flake8  --max-complexity=10 --max-line-length=100 --count --show-source --statistics demo-assignments/A0-OOP/hello
+        flake8  --max-complexity=10 --max-line-length=100 --count --show-source --statistics demo-assignments/A1/cold
+        flake8  --max-complexity=10 --max-line-length=100 --count --show-source --statistics demo-assignments/A1-OOP/cold
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         # flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Check types with mypy
       run: |
-        mypy --strict --allow-untyped-decorators --ignore-missing-imports A0/hello 
-        mypy --strict --allow-untyped-decorators --ignore-missing-imports A0-OOP/hello 
-        mypy --strict --allow-untyped-decorators --ignore-missing-imports A1/cold
-        mypy --strict --allow-untyped-decorators --ignore-missing-imports A1-OOP/cold
+        mypy --strict --allow-untyped-decorators --ignore-missing-imports demo-assignments/A0/hello 
+        mypy --strict --allow-untyped-decorators --ignore-missing-imports demo-assignments/A0-OOP/hello 
+        mypy --strict --allow-untyped-decorators --ignore-missing-imports demo-assignments/A1/cold
+        mypy --strict --allow-untyped-decorators --ignore-missing-imports demo-assignments/A1-OOP/cold
     - name: Test with pytest
       run: |
-        pytest --verbose A0/hello/tests
-        pytest --verbose A0-OOP/hello/tests
-        pytest --verbose A1/cold/tests
-        pytest --verbose A1-OOP/cold/tests
+        pytest --verbose demo-assignments/A0/hello/tests
+        pytest --verbose demo-assignments/A0-OOP/hello/tests
+        pytest --verbose demo-assignments/A1/cold/tests
+        pytest --verbose demo-assignments/A1-OOP/cold/tests
     - name: Generate coverage report
       run: |
-        pytest --cov-report=xml:A0/hello/coverage.xml --cov=A0/hello A0/hello/tests
-        pytest --cov-report=xml:A0-OOP/hello/coverage.xml --cov=A0-OOP/hello A0-OOP/hello/tests
-        pytest --cov-report=xml:A1/cold/coverage.xml --cov=A1/cold A1/cold/tests
-        pytest --cov-report=xml:A1-OOP/cold/coverage.xml --cov=A1-OOP/cold A1-OOP/cold/tests
+        pytest --cov-report=xml:demo-assignments/A0/hello/coverage.xml --cov=demo-assignments/A0/hello demo-assignments/A0/hello/tests
+        pytest --cov-report=xml:demo-assignments/A0-OOP/hello/coverage.xml --cov=demo-assignments/A0-OOP/hello demo-assignments/A0-OOP/hello/tests
+        pytest --cov-report=xml:demo-assignments/A1/cold/coverage.xml --cov=demo-assignments/A1/cold A1/cold/tests
+        pytest --cov-report=xml:demo-assignments/A1-OOP/cold/coverage.xml --cov=demo-assignments/A1-OOP/cold demo-assignments/A1-OOP/cold/tests
         codecov
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4.0.1
       with:
         fail_ci_if_error: false # optional (default = false)
-        files: A0/hello/coverage.xml \
-            A0-OOP/hello/coverage.xml \
-            A1/cold/coverage.xml \
-            A1-OOP/cold/coverage.xml
+        files: demo-assignments/A0/hello/coverage.xml \
+            demo-assignments/A0-OOP/hello/coverage.xml \
+            demo-assignments/A1/cold/coverage.xml \
+            demo-assignments/A1-OOP/cold/coverage.xml
         token: ${{ secrets.CODECOV_TOKEN }}
         slug: rambasnet/course-container
           
