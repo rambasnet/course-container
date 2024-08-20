@@ -13,7 +13,7 @@ valid_branch_regex="^(lab|project|assignment|homework|issue|dev|feature|bugfix|i
 
 message="ERROR on Commit. Branch name must adhere to this contract: $valid_branch_regex. Rename your branch to a valid name and try again."
 
-if [[ ! $current_branch =~ $valid_branch_regex ]]
+if [[ $current_branch =~ $valid_branch_regex ]]
 then
     echo "$message"
     echo "git branch -m <branch/sub-branch>"
