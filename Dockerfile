@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3.10
 
 RUN apt update \
   && apt install -y \
@@ -19,9 +19,9 @@ ENV HOME                /home/${USER}
 
 # Create user and setup permissions on /etc/sudoers
 RUN useradd -m -s /bin/bash -N -u $UID $USER && \
-    echo "${USER} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers && \
-    chmod 0440 /etc/sudoers && \
-    chmod g+w /etc/passwd 
+  echo "${USER} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers && \
+  chmod 0440 /etc/sudoers && \
+  chmod g+w /etc/passwd 
 
 WORKDIR ${HOME}
 
@@ -32,11 +32,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Install zsh - use "Bira" theme with some customization. 
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)" -- \
-    -t bira \
-    -p git \
-    -p ssh-agent \
-    -p https://github.com/zsh-users/zsh-autosuggestions \
-    -p https://github.com/zsh-users/zsh-completions
+  -t bira \
+  -p git \
+  -p ssh-agent \
+  -p https://github.com/zsh-users/zsh-autosuggestions \
+  -p https://github.com/zsh-users/zsh-completions
 
 USER user
 

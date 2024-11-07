@@ -1,0 +1,25 @@
+@startuml
+scale 2
+title "UML Class Diagram"
+class Solution {
+    .. Class Variables ..
+	_instance: Solution
+    .. Instance Variables ..
+    _data: List[List[int]]
+    _triangles: List[Triangle]
+    _answer: List[str]
+    .. Class Methods ..
+    + get_instance(): Solution | None
+    + main(): None
+    + reset_instance(): None
+    .. Instance Methods ..
+    + __init__(data: List[List[int]]): None
+	+ read_input(): None
+    + data(): List[List[int]]
+    + answer(): str
+    + solve(): None
+    + print_answer(): None
+    .. Static Methods ..
+    + main(): None
+}
+@enduml

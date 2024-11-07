@@ -15,6 +15,7 @@ check-type:
 	$(TYPE_CHECK) $(ASSIGNMENT)/A0-OOP/hello
 	$(TYPE_CHECK) $(ASSIGNMENT)/A1/cold
 	$(TYPE_CHECK) $(ASSIGNMENT)/A1-OOP/cold
+	$(TYPE_CHECK) $(ASSIGNMENT)/A2-ABC/egypt
 
 .PHONY: check-style
 check-style:
@@ -22,6 +23,7 @@ check-style:
 	$(STYLE_CHECK) $(ASSIGNMENT)/A0-OOP/hello
 	$(STYLE_CHECK) $(ASSIGNMENT)/A1/cold
 	$(STYLE_CHECK) $(ASSIGNMENT)/A1-OOP/cold
+	$(STYLE_CHECK) $(ASSIGNMENT)/A2-ABC/egypt
 
 # discover and run all tests
 .PHONY: run-test
@@ -30,6 +32,7 @@ run-test:
 	$(TEST) $(TEST_ARGS) $(ASSIGNMENT)/A0-OOP/hello/tests
 	$(TEST) $(TEST_ARGS) $(ASSIGNMENT)/A1/cold/tests
 	$(TEST) $(TEST_ARGS) $(ASSIGNMENT)/A1-OOP/cold/tests
+	$(TEST) $(TEST_ARGS) $(ASSIGNMENT)/A2-ABC/egypt/tests
 
 .PHONY: run-test-coverage
 run-test-coverage:
@@ -37,6 +40,7 @@ run-test-coverage:
 	$(COVERAGE) -v --cov-report=html:$(ASSIGNMENT)/A0-OOP/hello/htmlcov --cov-report=term --cov=$(ASSIGNMENT)/A0-OOP/hello $(ASSIGNMENT)/A0-OOP/hello/tests
 	$(COVERAGE) -v --cov-report=html:$(ASSIGNMENT)/A1/cold/htmlcov --cov-report=term --cov=$(ASSIGNMENT)/A1/cold $(ASSIGNMENT)/A1/cold/tests
 	$(COVERAGE) -v --cov-report=html:$(ASSIGNMENT)/A1-OOP/cold/htmlcov --cov-report=term --cov=$(ASSIGNMENT)/A1-OOP/cold $(ASSIGNMENT)/A1-OOP/cold/tests
+	$(COVERAGE) -v --cov-report=html:$(ASSIGNMENT)/A2-ABC/egypt/htmlcov --cov-report=term --cov=$(ASSIGNMENT)/A2-ABC/egypt $(ASSIGNMENT)/A2-ABC/egypt/tests
 
 .PHONY: clean
 clean:

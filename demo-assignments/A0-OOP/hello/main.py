@@ -64,7 +64,4 @@ def main() -> None:
 
 
 if __name__ == '__main__':
-    Main.main()
-    # main = Main()
-    # main = Main.get_instance()
-    # main.solve()
+    Main.main()  # pragma: no cover

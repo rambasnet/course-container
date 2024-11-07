@@ -1,0 +1,5 @@
+@startuml
+title "ABC Inheritance" 
+abstract Kattis
+Kattis <-- Solution
+@enduml

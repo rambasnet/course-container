@@ -87,4 +87,4 @@ class Solution():
 
 
 if __name__ == "__main__":
-    Solution.main()
+    Solution.main()  # pragma: no cover
