@@ -5,7 +5,7 @@ LC_ALL=C
 current_branch=$(git rev-parse --abbrev-ref HEAD)
 echo "Running pre-commit hook on branch: $current_branch"
 if [[ "$current_branch" == "main" ]]; then
-    echo "Commit on main is now allowed. Please use a feature branch."
+    echo "Commit on main is not allowed. Please use a feature branch."
     exit 1
 fi
 
