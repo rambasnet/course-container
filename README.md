@@ -29,7 +29,7 @@
     - `.mypy.ini`
     - `.flake8`
     - `Makefile`
-    - `run.sh`
+    - `run-docker.sh`
     - `run-jupyter.sh`
     - `script.sh`
     - `requirements.py`
@@ -70,7 +70,7 @@
 ## Run Docker
 
 1. `$ cd <your-repository>`
-2. `$ bash ./run.sh`
+2. `$ bash ./run-docker.sh`
 
 ### What does run.sh do?
 
