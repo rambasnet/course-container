@@ -120,7 +120,7 @@
 ### Rename a branch
 
 1. `$ cd <your-repository>`
-2. `$ git branch -m <new-branch-name> <old-branch-name>` # rename a branch; optional old-branch-name if you're on the old-branch-name
+2. `$ git branch -m <old-branch-name> <new-branch-name>` # rename a branch; optional old-branch-name if you're on the old-branch-name
 3. `$ git push origin -u <new-branch-name>` # push the new branch to GitHub and set the upstream
 
 ### Switch to an existing branch
