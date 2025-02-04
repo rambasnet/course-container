@@ -67,6 +67,16 @@
 8. Update .githooks/pre-push as needed for your project
     - this file is run by git hooks before pushing to any branch
 
+9. Make sure the git hooks are executable
+    - `$ chmod +x .githooks/pre-commit`
+    - `$ chmod +x .githooks/pre-push`
+
+10. Make sure core.hooksPath is set to `.githooks` by default it is set to `.git/hooks`
+
+```bash
+    $ git config core.hooksPath .githooks
+```
+
 ## Run Docker
 
 1. `$ cd <your-repository>`
