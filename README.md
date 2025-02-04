@@ -91,6 +91,13 @@
 5. Configures git to use the git hooks in your repository
 6. Runs the script.sh file in the Docker container
 
+## Git Major Commands
+
+1. `git status` - check the status of the repository
+2. `git add <file-name>` - add a file to the staging area
+3. `git commit -m "<commit-message>"` - commit the changes
+4. `git push` - push the changes to GitHub
+
 ## Git Branch Management and Best Practices
 
 - learn more about [git branch management](https://git-scm.com/docs/git-branch)
