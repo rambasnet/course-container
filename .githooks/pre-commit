@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-LC_ALL=C
 
-#current_branch=$(git symbolic-ref --short head)
 current_branch=$(git rev-parse --abbrev-ref HEAD)
 echo "Running pre-commit hook on branch: $current_branch"
 if [[ "$current_branch" == "main" ]]; then
