@@ -18,7 +18,7 @@ services:
       - 8888:8888
     command:
       [
-        "bash",
+        "zsh",
         "-c",
         "sudo chown user --recursive /home/user/ && tail -f /dev/null",
       ]
