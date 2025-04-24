@@ -5,13 +5,14 @@
 
 ## Setup
 
-1. Install [Docker](https://docs.docker.com/install/)
-2. Create a GitHub repository for your project/course
-3. Clone your repository to your local machine
-4. Download setup.sh script into your repository and run it
-    - `$ cd <your-repository>`
-    - `$ curl -o setup.sh https://raw.githubusercontent.com/rambasnet/course-container/main/setup.sh`
-    - `$ bash setup.sh`
+- Install [Docker](https://docs.docker.com/install/)
+- Install [Docker compose](https://docs.docker.com/compose/install/)
+- Create a GitHub repository for your project/course
+- Clone your repository to your local machine
+- Download setup.sh script into your repository and run it
+  - `$ cd <your-repository>`
+  - `$ curl -o setup.sh https://raw.githubusercontent.com/rambasnet/course-container/main/setup.sh`
+  - `$ bash setup.sh`
 
 ### Chromebook Setup
 
@@ -22,53 +23,51 @@
 ### What does setup.sh do?
 
 1. Clones this repository into your working directory
-2. Deep copies the following folders and files from this repository into your working directory:
-    - `Dockerfile`
-    - `.githooks`
-    - `.github`
-    - `.mypy.ini`
-    - `.flake8`
-    - `Makefile`
-    - `run-docker.sh`
-    - `run-jupyter.sh`
-    - `script.sh`
-    - `requirements.py`
-    - `ci-cd-requirements.txt`
+2. Removes this repo specific files and folder and keeps everything else
 3. Deletes the cloned repository and other files and folders not listed above
 
 ### Configure
 
 1. Update the Dockerfile as needed for your project
-    - E.g., if you need to install any Linux packages, add the package to the end of `apt install -y` line
-    - after the docker is built, it runs as a non-root user `user` with sudo privileges
-    - the default working directory is `/home/user`
-    - your repository is mounted to `/home/user/<your-repository>`
-    - no password is required for sudo commands
+
+   - E.g., if you need to install any Linux packages, add the package to the end of `apt install -y` line
+   - after the docker is built, it runs as a non-root user `user` with sudo privileges
+   - the default working directory is `/home/user`
+   - your repository is mounted to `/home/user/<your-repository>`
+   - no password is required for sudo commands
 
 2. Update the Makefile as needed for your project
-    - Makefile is used by git hooks to run test before pushing main to GitHub
+
+   - Makefile is used by git hooks to run test before pushing main to GitHub
 
 3. Update the script.sh as needed for your project
-    - you may rarely need to change the script.sh file
+
+   - you may rarely need to change the script.sh file
 
 4. Update the requirements.py as needed for your project
-    - this file is used by Docker to install Python packages
+
+   - this file is used by Docker to install Python packages
 
 5. Update .github/workflows/ci-test.yml as needed for your project
-    - this file is used by GitHub Actions to run tests on push to main
+
+   - this file is used by GitHub Actions to run tests on push to main
 
 6. Update ci-cd-requirements.txt as needed for your project
-    - this file is used by GitHub Actions to install Python packages
+
+   - this file is used by GitHub Actions to install Python packages
 
 7. Update .githooks/pre-commit as needed for your project
-    - this file is run by git hooks before commmitting to any branch
+
+   - this file is run by git hooks before commmitting to any branch
 
 8. Update .githooks/pre-push as needed for your project
-    - this file is run by git hooks before pushing to any branch
+
+   - this file is run by git hooks before pushing to any branch
 
 9. Make sure the git hooks are executable
-    - `$ chmod +x .githooks/pre-commit`
-    - `$ chmod +x .githooks/pre-push`
+
+   - `$ chmod +x .githooks/pre-commit`
+   - `$ chmod +x .githooks/pre-push`
 
 10. Make sure core.hooksPath is set to `.githooks` by default it is set to `.git/hooks`
 
@@ -76,12 +75,12 @@
     $ git config core.hooksPath .githooks
 ```
 
-## Run Docker
+## Run Docker with run-docker.sh bash script
 
 1. `$ cd <your-repository>`
 2. `$ bash ./run-docker.sh`
 
-### What does run.sh do?
+### What does run-docker.sh do?
 
 1. Builds the Docker image
 2. Runs the Docker container
@@ -89,6 +88,17 @@
 4. Sets the working directory to your repository
 5. Configures git to use the git hooks in your repository
 6. Runs the script.sh file in the Docker container
+
+## Build and run Docker with docker-compose
+
+- default container name is container in docker-compose file
+- run the following docker commands
+
+```bash
+docker-compose up -d
+docker ps
+docker exec -it <container-name> zsh
+```
 
 ## Git Major Commands
 
@@ -101,25 +111,25 @@
 
 - learn more about [git branch management](https://git-scm.com/docs/git-branch)
 - CMU advanced courses deosn't allow committing to the main branch
-    - only merge and push to main branch allowed
+  - only merge and push to main branch allowed
 - CMU courses recommend and enforce using a branch name that starts with:
-    - `lab|project|assignment|homework|issue|dev|feature|bugfix|improvement|library|prerelease|release|hotfix`
-    - `main` - the main branch - only merge and push to main branch allowed
-        - the main branch is protected and cannot be deleted
-        - the main branch is the default branch
-        - the main branch is the production branch
-        - the main branch is the release branch from which tags and releases are made
-    - `issue/<#>` - the issue branch
-        - the issue branch is used to fix an issue, bug, or add a new feature
-        - the issue branch is created from the main branch
-        - the issue branch is merged to the main branch
-    - `feature/<feature-name>` - the feature branch
-    - `bug/<bug-name>` - the bug branch
-    - `hotfix/<hotfix-name>` - the hotfix branch
-    - `release/<release-name>` - the release branch
-    - `lab/<lab-name>` - the lab branch for lab courses
-    - `project/<project-name>` - the project branch for various sub projects within a course
-    - `assignment/<assignment-name>` - the assignment branch for various assignments within a course
+  - `lab|project|assignment|homework|issue|dev|feature|bugfix|improvement|library|prerelease|release|hotfix`
+  - `main` - the main branch - only merge and push to main branch allowed
+    - the main branch is protected and cannot be deleted
+    - the main branch is the default branch
+    - the main branch is the production branch
+    - the main branch is the release branch from which tags and releases are made
+  - `issue/<#>` - the issue branch
+    - the issue branch is used to fix an issue, bug, or add a new feature
+    - the issue branch is created from the main branch
+    - the issue branch is merged to the main branch
+  - `feature/<feature-name>` - the feature branch
+  - `bug/<bug-name>` - the bug branch
+  - `hotfix/<hotfix-name>` - the hotfix branch
+  - `release/<release-name>` - the release branch
+  - `lab/<lab-name>` - the lab branch for lab courses
+  - `project/<project-name>` - the project branch for various sub projects within a course
+  - `assignment/<assignment-name>` - the assignment branch for various assignments within a course
 
 ### Create a new branch, track it, and push it to GitHub
 
@@ -194,7 +204,6 @@
 4. `$ git revert -m 1 <commit-hash>` # revert the merge commit
 5. `$ git push` # push the changes to GitHub
 
-
 ### Revert a merge conflict
 
 - you can revert a merge conflict on any branch
@@ -204,7 +213,6 @@
 3. `$ git log` # find the commit hash you want to revert
 4. `$ git revert -m 1 <commit-hash>` # revert the merge commit
 5. `$ git push` # push the changes to GitHub
-
 
 ### Git Tagging
 
@@ -222,7 +230,7 @@
 
 1. `$ cd <your-repository>`
 2. `$ git tag -a <tag-name> -m "<tag-message>"` # create a tag
-    - e.g., `$ git tag -a assignment-1 -m "Final Submission of Assignment/1"`
+   - e.g., `$ git tag -a assignment-1 -m "Final Submission of Assignment/1"`
 3. `$ git push origin <tag-name>` # push the tag to GitHub
 4. git tag -d <tag-name> # delete a tag locally
 5. git tag # show all tags
