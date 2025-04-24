@@ -16,7 +16,12 @@ services:
     privileged: true # Grant full privileges to the container
     ports:
       - 8888:8888
-    command: ["bash", "-c", "zsh && tail -f /dev/null"]
+    command:
+      [
+        "bash",
+        "-c",
+        "sudo chown user --recursive /home/user/ && tail -f /dev/null",
+      ]
 
 networks:
   default:
