@@ -107,7 +107,7 @@ docker-compose down
 docker-compose up -d --build
 ```
 
-## Run Docker with run-docker.sh bash script
+### Run Docker with run-docker.sh bash script
 
 1. `$ cd <your-repository>`
 2. `$ bash ./run-docker.sh`
