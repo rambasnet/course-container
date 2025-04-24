@@ -3,10 +3,11 @@
 ![Tests](https://github.com/rambasnet/course-container/actions/workflows/ci-test.yml/badge.svg)
 [![Code Coverage](https://img.shields.io/codecov/c/github/rambasnet/course-container?label=codecov&logo=codecov)](https://app.codecov.io/gh/rambasnet/course-container)
 
-## Setup
+## Windows/Linux/Mac Setup
 
 - Install [Docker](https://docs.docker.com/install/)
 - Install [Docker compose](https://docs.docker.com/compose/install/)
+- Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and configure it
 - Create a GitHub repository for your project/course
 - Clone your repository to your local machine
 - Download setup.sh script into your repository and run it
@@ -75,6 +76,37 @@
     $ git config core.hooksPath .githooks
 ```
 
+## Usage
+
+### Run Docker with docker-compose
+
+- default container name is container in docker-compose file
+- run the following docker commands
+
+```bash
+docker-compose up -d
+docker ps
+docker exec -it <container-name> zsh
+```
+
+- to exit container, run the following command on the container Terminal
+
+```bash
+exit
+```
+
+- to stop the container, run the following command on the host Terminal
+
+```bash
+docker-compose down
+```
+
+- if you want to rebuild the container (after any changes to Dockerfile or requirements.txt), run the following command on the host Terminal
+
+```bash
+docker-compose up -d --build
+```
+
 ## Run Docker with run-docker.sh bash script
 
 1. `$ cd <your-repository>`
@@ -89,18 +121,7 @@
 5. Configures git to use the git hooks in your repository
 6. Runs the script.sh file in the Docker container
 
-## Build and run Docker with docker-compose
-
-- default container name is container in docker-compose file
-- run the following docker commands
-
-```bash
-docker-compose up -d
-docker ps
-docker exec -it <container-name> zsh
-```
-
-## Git Major Commands
+## Git Important Commands
 
 1. `git status` - check the status of the repository
 2. `git add <file-name>` - add a file to the staging area
@@ -239,3 +260,7 @@ docker exec -it <container-name> zsh
 
 - Kattis-cli is already installed in the Docker container
 - [See this document for Kattis setup and usage](https://github.com/rambasnet/kattis-cli)
+
+```
+
+```
