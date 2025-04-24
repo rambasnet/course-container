@@ -1,4 +1,0 @@
-@startuml
-title "UML Class Interaction"
-Solution "1" - Triangle: manages >
-@enduml

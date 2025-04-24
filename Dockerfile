@@ -1,10 +1,11 @@
-FROM python:3.10
+FROM python:3.12
 
 RUN apt update \
   && apt install -y \
   g++ gcc make sqlite3 time curl git nano dos2unix \
   net-tools iputils-ping iproute2 sudo gdb less \
-  && apt clean;
+  && apt clean
+
 
 # Install Java and Graphviz for plantuml
 RUN apt install default-jre graphviz -y
@@ -23,10 +24,13 @@ RUN useradd -m -s /bin/bash -N -u $UID $USER && \
   chmod 0440 /etc/sudoers && \
   chmod g+w /etc/passwd 
 
-WORKDIR ${HOME}
+USER user
+
+WORKDIR ${HOME}/workspace
 
 RUN pip install --upgrade pip
 
+# install python packages from requirements.txt
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -38,6 +42,5 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
   -p https://github.com/zsh-users/zsh-autosuggestions \
   -p https://github.com/zsh-users/zsh-completions
 
-USER user
-
+ENV PATH="${HOME}/.local/bin:$PATH"
 CMD zsh

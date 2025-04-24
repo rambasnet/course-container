@@ -1,4 +1,0 @@
-@startuml
-title "UML Class Interaction"
-Main "1" - HelloWorld: manages >
-@enduml
