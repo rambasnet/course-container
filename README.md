@@ -34,7 +34,6 @@
     - `script.sh`
     - `requirements.py`
     - `ci-cd-requirements.txt`
-    - `demo-assignments/*`
 3. Deletes the cloned repository and other files and folders not listed above
 
 ### Configure
