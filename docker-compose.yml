@@ -4,7 +4,7 @@ services:
       context: ./ # Use the current directory as the build context
       dockerfile: Dockerfile
     hostname: debian
-    container_name: debian
+    container_name: ${CONTAINER_NAME}
     volumes:
       - ./:/home/user/workspace
       - ${HOME}/.gitconfig:/home/user/.gitconfig
