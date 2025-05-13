@@ -76,11 +76,19 @@
     $ git config core.hooksPath .githooks
 ```
 
+11. Make sure git is installed and configured to push to remote
+
+```bash
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+```
+
 ## Usage
 
 ### Run Docker with docker-compose
 
-- default container name is container in docker-compose file
+- default container name is <coursename>
+- edit `.env` file to change the containername for your course such as OOP, CS0, etc.
 - run the following docker commands
 
 ```bash
