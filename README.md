@@ -87,7 +87,7 @@
 
 ### Run Docker with docker-compose
 
-- default container name is <coursename>
+- default container name is <cours-container>
 - edit `.env` file to change the containername for your course such as OOP, CS0, etc.
 - run the following docker commands
 

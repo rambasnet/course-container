@@ -6,7 +6,7 @@ services:
     hostname: debian
     container_name: ${CONTAINER_NAME}
     volumes:
-      - ./:/home/user/workspace
+      - ./:/home/user/course-container
       - ${HOME}/.gitconfig:/home/user/.gitconfig
       - ${HOME}/.ssh:/home/user/.ssh
       - ${HOME}/.zsh_history:/home/user/.zsh_history
@@ -16,12 +16,7 @@ services:
     privileged: true # Grant full privileges to the container
     ports:
       - 8888:8888
-    command:
-      [
-        "zsh",
-        "-c",
-        "sudo chown user --recursive /home/user/ && tail -f /dev/null",
-      ]
+    command: [ "bash", "-c", "sudo chown user --recursive /home/user/ && tail -f /dev/null" ]
 
 networks:
   default:
