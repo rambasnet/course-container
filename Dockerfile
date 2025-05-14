@@ -15,8 +15,8 @@ ARG UID=1000
 ARG GID=1000
 
 # Set environment variables
-ENV USER                ${USER}
-ENV HOME                /home/${USER}
+ENV USER=${USER}
+ENV HOME=/home/${USER}
 
 # Create user and setup permissions on /etc/sudoers
 RUN useradd -m -s /bin/bash -N -u $UID $USER && \
@@ -26,7 +26,7 @@ RUN useradd -m -s /bin/bash -N -u $UID $USER && \
 
 USER user
 
-WORKDIR ${HOME}/workspace
+WORKDIR ${HOME}
 
 RUN pip install --upgrade pip
 
