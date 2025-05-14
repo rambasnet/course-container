@@ -87,14 +87,20 @@
 
 ### Run Docker with docker-compose
 
-- default container name is <cours-container>
-- edit `.env` file to change the containername for your course such as OOP, CS0, etc.
+- default container name is <course-container>
+- edit `.env` file to change the course specific names as OOP, CS0, etc.
 - run the following docker commands
 
 ```bash
 docker-compose up -d
 docker ps
 docker exec -it <container-name> zsh
+```
+
+- if you modify `Dockerfile` or `requirements.txt` file, you must rebuild the image
+
+```bash
+docker-compose up -d --build
 ```
 
 - to exit container, run the following command on the container Terminal
