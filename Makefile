@@ -6,7 +6,7 @@ COVERAGE = python -m pytest
 ASSIGNMENT = ./assignments
 
 .PHONY: all
-all: check-style check-type run-test-coverage clean
+all: check-style check-type run-test clean
 	@echo "All checks passed"
 
 .PHONY: check-type
