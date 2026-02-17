@@ -22,10 +22,6 @@ check-style:
 run-test:
 	@echo "FIXME"
 
-.PHONY: run-test-coverage
-run-test-coverage:
-	@echo "FIXME"
-
 .PHONY: clean
 clean:
 	# remove all caches recursively
