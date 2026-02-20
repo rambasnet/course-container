@@ -1,0 +1,7 @@
+{
+  "extensions.autoCheckUpdates": false,
+  "extensions.autoUpdate": false,
+  "github.copilot.enable": {
+    "*": false
+  }
+}
